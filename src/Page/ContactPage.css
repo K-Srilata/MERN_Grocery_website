@@ -1,0 +1,34 @@
+/* ContactPage.css */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* This ensures the container takes the full height of the viewport */
+    margin: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("https://wepik.com/api/image/ai/9ac06b6f-5aea-4f8a-938a-89a8e0db3c18");
+  }
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .company-info {
+    margin-top: 20px;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  strong {
+    color: #555;
+  }

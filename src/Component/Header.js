@@ -23,12 +23,12 @@ const Header = () => {
   const cartItemNumber = useSelector((state) => state.product.cartItem)
   console.log(process.env.REACT_APP_ADMIN_EMAIL)
   return (
-    <header className="fixed shadow-md w-full h-16 px-2 md:px-4 z-50 text-white"style={{backgroundColor: "#678e61"}}>
+    <header className="fixed shadow-md w-full h-16 px-2 md:px-4 z-50 text-white" style={{ backgroundColor: "#678e61" }}>
       {/* desktop */}
 
       <div className="flex items-center h-full justify-between">
-        <Link to={""}>                                             
-          <div className="h-20">
+        <Link to={""}>
+          <div className="h-24">
             <img src={logo2} className="h-full                                              " />
           </div>
         </Link>
@@ -66,7 +66,6 @@ const Header = () => {
                     New product
                   </Link>
                 )}
-
                 {userData.image ? (
                   <p
                     className="cursor-pointer text-white px-2 bg-red-500"

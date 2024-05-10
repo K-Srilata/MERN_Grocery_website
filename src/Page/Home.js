@@ -36,15 +36,15 @@ const Home = () => {
             />
           </div>
           <h2 className="text-4xl md:text-7xl font-bold py-3">
-            The Fasted Delivery in{" "}
-            <span className="text-600 text-" style={{color:"#678e61"}}>Your Home</span>
+          The Online{" "}
+            <span className="text-600 text-" style={{color:"#678e61"}}>Grocery Store</span>
           </h2>
           <p className="py-3 text-base ">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries
+          "Welcome to ToZepy, where your grocery experience meets convenience and quality. 
+          Explore a diverse range of fresh produce, pantry essentials, and household treasures—all
+          carefully selected for your satisfaction.
+          With a proven track record, we bring you not just groceries but a commitment to excellence. 
+          Shop with ease, trust ToZepy for a delightful and reliable shopping journey."
           </p>
           <button className="font-bold text-slate-200 px-4 py-2 rounded-md" style={{backgroundColor:"#678e61"}}>
             Order Now

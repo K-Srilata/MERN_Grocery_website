@@ -19,32 +19,36 @@ const Cart = () => {
     (acc, curr) => acc + parseInt(curr.qty),
     0
   );
-  const handlePayment = async () => {
-    try {
-      // ... (existing code)
-      const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
-      const res = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/create-checkout-session`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(productCartItem),
-      });
-  
-      if (!res.ok) {
-        throw new Error(`Server returned status ${res.status}`);
-      }
-  
-      const data = await res.json();
-      console.log(data);
-  
-      toast("Redirect to payment Gateway...!");
-      stripePromise.redirectToCheckout({ sessionId: data });
-    } catch (error) {
-      console.error("Error during payment:", error);
-      toast.error("Failed to initiate payment. Please try again later.");
+  const handlePayment = async()=>{
+ 
+    if(user.email){
+       
+        const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
+        console.log(stripePromise);
+        const res = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/checkout-payment`,{
+          method : "POST",
+          headers  : {
+            "content-type" : "application/json"
+          },
+          body  : JSON.stringify(productCartItem)
+        })
+        if(res.statusCode === 500) return;
+
+        const data = await res.json()
+        console.log(data)
+
+        toast("Redirect to payment Gateway...!")
+        stripePromise.redirectToCheckout({sessionId : data})
     }
-  };
+    else{
+      toast("You have not Login!")
+      setTimeout(()=>{
+        navigate("/login")
+      },1000)
+    }
+ 
+
+}
   
   return (
     <>
@@ -87,7 +91,7 @@ const Cart = () => {
                 <span className="text-red-500">₹</span> {totalPrice}
               </p>
             </div>
-            <button className="bg-red-500 w-full text-lg font-bold py-2 text-white" onClick={handlePayment}>
+            <button className="bg-red-500 w-full text-lg font-bold py-2 text-white" onClick={handlePayment}  style={{backgroundColor:"#678e61"}}>
               Payment
             </button>
           </div>
